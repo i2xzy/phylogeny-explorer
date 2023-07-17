@@ -7,9 +7,23 @@ export function getStrapiURL(path = '') {
 // Helper to make GET requests to Strapi
 export async function fetchAPI(path: string) {
   const requestUrl = getStrapiURL(`/api/${path}`);
-  const response = await fetch(requestUrl);
-  const { data }: Content = await response.json();
-  return data;
+  try {
+    const response = await fetch(requestUrl);
+    const { data }: Content = await response.json();
+    return data;
+  } catch (error) {
+    console.error(error);
+    return {
+      error,
+      attributes: {
+        hero: { background: { data: { attributes: { url: '' } } } },
+        phylogeny: { image: { data: null } },
+        about: { images: { data: [] } },
+        footer: { icons: [] },
+        background: { data: { attributes: { url: '' } } },
+      },
+    };
+  }
 }
 
 export function getStrapiMedia(data: MediaData) {

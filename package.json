@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "local": "NEXT_PUBLIC_API_BASE=local PORT=3001 next dev",
+    "local": "NEXT_PUBLIC_API_BASE=local next dev",
     "build": "next build",
     "start": "next start",
     "test": "jest",

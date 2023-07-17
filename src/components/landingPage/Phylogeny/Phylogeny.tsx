@@ -18,7 +18,14 @@ const Phylogeny = ({ title, text, image }: Props) => (
       <HeadingXLarge>{title}</HeadingXLarge>
       <LargeText>{text}</LargeText>
     </Info>
-    <Image src={getStrapiMedia(image.data)} alt="" width={1024} height={585} />
+    {image.data && (
+      <Image
+        src={getStrapiMedia(image.data)}
+        alt=""
+        width={1024}
+        height={585}
+      />
+    )}
   </Section>
 );
 
